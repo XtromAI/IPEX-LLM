@@ -1,0 +1,1 @@
+path: C:\Users\creks\miniconda3\envs\ipex-llm\Lib\site-packages\intel_extension_for_pytorch\bin\intel-ext-pt-gpu.dll
