@@ -19,10 +19,14 @@ Run the largest possible INT4 GGUF models on this hardware while sustaining at l
 
 ## What You Get
 - `ollama-portable/`: Intel's prebuilt Ollama distribution with IPEX-LLM optimizations, runtime DLLs, and helper batch files (`start-ollama.bat`, `ollama-serve.bat`).
+- `docs/`: Detailed documentation on the portable bundle, updates, and configuration.
 - `.github/`: Copilot/automation guidance.
 - `README.md`: All instructions, model notes, and troubleshooting (no separate quickstart file).
 
 There are no Python projects, specs, or alternative setups left in the tree.
+
+## Documentation
+For more detailed information on the portable bundle, including how to update to the latest version and advanced configuration, see [docs/portable-ollama.md](docs/portable-ollama.md).
 
 ## Daily Workflow
 
@@ -63,6 +67,9 @@ Invoke-RestMethod -Method Post -Uri http://127.0.0.1:11434/api/generate -Body $b
 ### 4. Tips & Troubleshooting
 - First prompt after a reboot can take a few minutes because kernels compile on the Arc GPU; subsequent prompts are fast.
 - Try `llama3.2:3b` for smoke tests, `gemma3:12b` for everyday chat, and `gpt-oss:20b` when you need a larger generalist while staying within the thermal budget.
+- Loading `gemma3:27b` consumes roughly half of the system's unified memory; expect other desktop apps to slow down until you stop the model with `ollama.exe stop gemma3:27b`.
+- Large pulls (Gemma 3 27B) slam disk and memory bandwidth for several minutes, so plan downloads when you can tolerate UI lag.
+- Sustained inference on the Arc 140V can raise chassis temps and temporarily lower CPU turbo clocks; monitor Task Manager → GPU and CPU if you notice throttling.
 - Watch Task Manager → Performance → GPU 0 to confirm the load sits on the Intel Arc 140V.
 - Server window closed? Rerun `cmd /c start-ollama.bat`.
 - Model missing? `ollama.exe pull <model>` and retry.
