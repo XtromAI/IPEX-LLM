@@ -1,0 +1,48 @@
+.obsidian
+
+# Editor settings
+.vscode/
+.idea/
+
+# OS/system clutter
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Python caches and build artifacts
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+*.dylib
+build/
+dist/
+.eggs/
+*.egg-info/
+pip-wheel-metadata/
+.mypy_cache/
+.pytype/
+.pytest_cache/
+.hypothesis/
+.coverage
+coverage.xml
+htmlcov/
+.cache/
+
+# Virtual environments
+.venv/
+venv/
+env/
+.env
+.env.*
+
+# Project-specific temporary data
+logs/
+*.log
+tmp/
+temp/
+
+# Ollama runtime assets
+ollama-portable/models/
+ollama-portable/data/
+/.obsidian

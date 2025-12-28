@@ -91,6 +91,6 @@ The `ollama-serve.bat` configures:
 3. **Monitor Performance**: Use Intel Arc Control app to check GPU utilization
 4. **Scale Up**: Try larger models like `qwen2.5:14b` (fits in 32GB RAM)
 
-## Python/HuggingFace (Alternative)
+## Keep DLLs Contained
 
-If you need direct Python access to IPEX-LLM transformers, see [SETUP.md](docs/SETUP.md) for the conda environment approach. Note: This requires resolving Intel runtime dependencies and is more complex than Ollama.
+Only the files inside `ollama-portable/` should include Intel runtime DLLs. Run the cleanup command from [SETUP.md](docs/SETUP.md#legacy-ipex-cleanup-required) if you previously copied runtimes from Conda so the repo stays portable.

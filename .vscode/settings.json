@@ -10,20 +10,6 @@
         ".specify/scripts/bash/": true,
         ".specify/scripts/powershell/": true
     },
-    "python.defaultInterpreterPath": "${env:USERPROFILE}\\miniconda3\\envs\\ipex-llm\\python.exe",
-    "python.condaPath": "${env:USERPROFILE}\\miniconda3\\Scripts\\conda.exe",
-    "terminal.integrated.profiles.windows": {
-        "PowerShell (ipex-llm)": {
-            "source": "PowerShell",
-            "args": [
-                "-NoExit",
-                "-Command",
-                "conda activate ipex-llm"
-            ]
-        }
-    },
-    "terminal.integrated.defaultProfile.windows": "PowerShell (ipex-llm)",
     "terminal.integrated.shellIntegration.enabled": true
-    }
 }
 

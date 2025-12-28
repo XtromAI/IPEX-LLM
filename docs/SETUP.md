@@ -79,15 +79,17 @@ set ONEAPI_DEVICE_SELECTOR=level_zero:0
 
 ---
 
-## Alternative: Python/HuggingFace Setup (Advanced)
+## Legacy IPEX Cleanup (Required)
 
-If you need Python integration for custom code, see [PYTHON_SETUP.md](PYTHON_SETUP.md).
+The old Conda/IPEX workflow is fully retired. Make sure no manual Intel runtime copies remain in the repo or on your PATH:
 
-⚠️ **Warning**: The Python setup has complex runtime dependency requirements and is not recommended unless you specifically need programmatic access to models.
+1. **Delete historic diagnostics** like `deps_output.txt` or any `dll_list.txt` files that pointed at `miniconda3` runtime folders.
+2. **Verify DLL scope**:
+   ```powershell
+   Get-ChildItem -Filter *.dll -Recurse | Where-Object { $_.FullName -notmatch "ollama-portable" }
+   ```
+   The command should return nothing; if it does, delete those files.
+3. **Undo PATH hacks** that referenced `%USERPROFILE%\miniconda3\envs\ipex-llm\Lib\site-packages\intel_extension_for_pytorch\bin`. Only `ollama-portable\` should expose Intel runtimes now.
+4. **Remove scheduled tasks or services** that tried to bootstrap the Conda environment. Use `scripts/register-ollama-autostart.ps1` instead.
 
-The Python approach we attempted encountered:
-- Runtime version mismatches (conda 2023.1 vs pip 2024.0.x)
-- Missing DLL dependencies (sycl.dll, libuv, etc.)
-- ABI compatibility issues between IPEX and Intel runtimes
-
-**Ollama Portable avoids all these issues.**
+By keeping DLLs confined to `ollama-portable/`, we avoid ABI drift and ensure future upgrades only require refreshing the portable zip.
