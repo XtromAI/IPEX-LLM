@@ -10,6 +10,7 @@
         ".specify/scripts/bash/": true,
         ".specify/scripts/powershell/": true
     },
-    "terminal.integrated.shellIntegration.enabled": true
+    "terminal.integrated.shellIntegration.enabled": true,
+    "python.defaultInterpreterPath": "C:\\Users\\creks\\miniconda3\\envs\\ipex-llm\\python.exe"
 }
 
