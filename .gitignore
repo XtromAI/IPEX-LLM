@@ -48,3 +48,4 @@ temp/
 ollama-portable/models/
 ollama-portable/data/
 /.obsidian
+TinyLlama-1.1B-ov/openvino_model.bin
