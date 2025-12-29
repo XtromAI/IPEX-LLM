@@ -191,6 +191,16 @@ $body = @{
 
 $response = Invoke-RestMethod -Method Post -Uri "http://127.0.0.1:8000/api/generate" -Body $body -ContentType "application/json"
 Write-Host $response.response
+# Test from another terminal (PowerShell)
+$body = @{
+    model = "TinyLlama-1.1B-ov"
+    prompt = "What is unified memory?"
+    stream = $false
+    max_new_tokens = 128
+} | ConvertTo-Json
+
+$response = Invoke-RestMethod -Method Post -Uri "http://127.0.0.1:11435/api/generate" -Body $body -ContentType "application/json"
+Write-Host $response.response
 ```
 
 **API Endpoints:**

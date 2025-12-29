@@ -5,7 +5,7 @@ Demonstrates how to interact with the server from other applications
 import requests
 import json
 
-SERVER_URL = "http://127.0.0.1:8000"
+SERVER_URL = "http://127.0.0.1:11435"
 
 def test_health():
     """Test server health check"""
@@ -96,7 +96,7 @@ $body = @{
     max_new_tokens = 256
 } | ConvertTo-Json
 
-$response = Invoke-RestMethod -Method Post -Uri "http://127.0.0.1:8000/api/generate" -Body $body -ContentType "application/json"
+$response = Invoke-RestMethod -Method Post -Uri "http://127.0.0.1:11435/api/generate" -Body $body -ContentType "application/json"
 
 Write-Host "Response: $($response.response)"
 '''

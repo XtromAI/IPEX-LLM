@@ -5,7 +5,7 @@
 REST API server that makes OpenVINO GenAI models accessible to other applications on your computer via HTTP requests. Compatible with Ollama API endpoints.
 
 **Status:** ✅ Working on Intel Arc 140V  
-**Port:** 8000 (to avoid conflict with IPEX-LLM on 11434)  
+**Port:** 11435 (to avoid conflict with IPEX-LLM on 11434)  
 **Performance:** ~0.6s generation for simple prompts  
 
 ## Quick Start
@@ -27,7 +27,7 @@ Loading model: TinyLlama-1.1B-ov
 Device: GPU (Intel Arc 140V)
 Model loaded in 2.02s
 
-✓ Server ready at http://127.0.0.1:8000
+✓ Server ready at http://127.0.0.1:11435
 ============================================================
 ```
 
@@ -61,7 +61,7 @@ Generation time: 0.62 seconds
 
 ### 1. Health Check
 ```http
-GET http://127.0.0.1:8000/
+GET http://127.0.0.1:11435/
 ```
 
 **Response:**
@@ -75,7 +75,7 @@ GET http://127.0.0.1:8000/
 
 ### 2. List Models
 ```http
-GET http://127.0.0.1:8000/api/tags
+GET http://127.0.0.1:11435/api/tags
 ```
 
 **Response:**
