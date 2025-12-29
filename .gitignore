@@ -44,7 +44,7 @@ logs/
 tmp/
 temp/
 
-# Ollama runtime assets
-ollama-portable/models/
-ollama-portable/data/
+# Ollama runtime assets (models stored in user profile)
+# Future: add any section-specific ignores here
+
 /.obsidian
