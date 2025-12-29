@@ -1,4 +1,29 @@
-# IPEX-LLM Portable (Lunar Lake)
+# IPEX-LLM / OpenVINO GenAI on Intel Lunar Lake (Arc 140V)
+
+> **⚠️ Migration Notice (December 28, 2025):** Successfully migrated to **OpenVINO GenAI v2025.4.1.0** (actively maintained, updated 2 weeks ago) due to IPEX-LLM maintenance concerns (last update 8 months ago). See [OpenVINO Setup Guide](docs/openvino-setup.md) and [Setup Log](docs/setup-log-2025-12-28.md) for details.
+
+## Quick Start (OpenVINO GenAI - Recommended)
+
+```powershell
+# Activate environment
+conda activate openvino-genai
+
+# Interactive chat
+python chat_openvino.py
+
+# Performance test
+python test_openvino.py
+```
+
+**Current Status:** ✅ Working on Intel Arc 140V  
+**Performance:** ~70 words/s (TinyLlama-1.1B-Chat INT4)  
+**GPU Detection:** Automatic via Level Zero  
+
+See [docs/openvino-setup.md](docs/openvino-setup.md) for complete setup instructions.
+
+---
+
+## Legacy IPEX-LLM Setup (Deprecated - Last Updated April 2025)
 
 This repository contains a fully updated Ollama installation with IPEX-LLM optimizations for the Samsung Galaxy Book5 Pro with Intel Arc 140V iGPU. All workflows use the global `ipex-llm` conda environment.
 
