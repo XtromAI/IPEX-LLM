@@ -23,10 +23,9 @@ Get-Process | Where-Object { $_.ProcessName -like '*ollama*' }
 ```
 
 ### Stop Server
-Press `Ctrl+C` in the terminal where `start-ollama-server.ps1` is running, or use a command:
-```powershell
 Press `Ctrl+C` in the terminal where `start-ollama-server.ps1` is running to gracefully stop the server.
 
+```powershell
 # If you need to automate or force stop:
 Stop-Process -Name "ollama" -Force
 ```
